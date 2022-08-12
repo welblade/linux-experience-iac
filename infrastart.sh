@@ -9,14 +9,14 @@ do
   if [ "$(getent group ${group})" ]; then
     echo "Não há necessidade de criar o grupo ${group}."
   else
-    echo "groupadd ${group}"
+    groupadd "${group}"
   fi
 done
 
 echo "Criando os diretórios."
 for t_dir in "${dirs[@]}";
 do
-    declare -a dir_conf=(${t_dir})
+    declare -a dir_conf=("${t_dir}")
     mkdir -p "/shared/${dir_conf[0]}"
     chgrp "${dir_conf[1]}" "/shared/${dir_conf[0]}" 
     chmod "${dir_conf[2]}" "/shared/${dir_conf[0]}"
@@ -25,7 +25,7 @@ done
 echo "Criando usuários."
 for t_user in "${users[@]}";
 do
-    declare -a user_conf=(${t_user})
+    declare -a user_conf=("${t_user}")
     useradd "${user_conf[0]}" -m -G "${user_conf[1]}" -s /bin/bash -p "$(openssl passwd -6 123459)" 
     usermod -e "${user_conf[0]}"
 done
