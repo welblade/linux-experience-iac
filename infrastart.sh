@@ -27,5 +27,5 @@ for t_user in "${users[@]}";
 do
     declare -a user_conf=(${t_user})
     useradd "${user_conf[0]}" -m -G "${user_conf[1]}" -s /bin/bash -p "$(openssl passwd -6 123459)" 
-    usermod -e "${user_conf[0]}"
+    usermod "${user_conf[0]}" -e
 done
