@@ -1,5 +1,10 @@
-# linux-experience-iac
-Script bash para criar automaticamente usuários, grupos, diretórios e permissões.
+# Linux Experience
+Bootcamp sobre administração de sistema linux.
+## Desafio de código
+Script bash para criar automaticamente usuários, grupos, diretórios e permissões, conforme a especificação dada no desafio.
+
+### Execução
+    ./infrastart.sh
 
 ### Criação dos grupos
 "GRP_ADM" "GRP_VEN" "GRP_SEC"
