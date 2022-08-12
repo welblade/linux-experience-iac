@@ -9,7 +9,7 @@ USERS=("carlos GRP_ADM" "maria GRP_ADM" "joao GRP_ADM" "debora GRP_VEN" "sebasti
 echo "Criando os grupos" "${GROUPS[@]}"
 for group in "${GROUPS[@]}"
 do 
-  if [ "$(getent group admin)" ]; then
+  if [ "$(getent group ${group})" ]; then
     echo "Não há necessidade de criar o grupo ${group}."
   else
     echo "groupadd ${group}"
